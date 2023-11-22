@@ -35,9 +35,12 @@ $tvsData = {};
 
 		let newMapData = $.mapData[this._newMapId];
 		if (newMapData) {
-			Object.keys(newMapData).forEach((key) => {
-				let val = newMapData[key]; key = parseInt(key);
-				if (!isNaN(key)) $gameVariables.setValue(key, val); 
+			$.tempVariablesIds.forEach((num) => {
+				let id = parseInt(num);
+				if (!isNaN(id)) {
+					if (newMapData[id]) $gameVariables.setValue(id, newMapData[id]);
+					else $gameVariables.setValue(id, 0);
+				}
 			});
 		} else {
 			$.tempVariablesIds.forEach((num) => {
