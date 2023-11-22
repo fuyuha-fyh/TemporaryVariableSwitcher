@@ -27,7 +27,7 @@ $tvsData = {};
 			if (!isNaN(id)) {
 				let variableValue = $gameVariables.value(id);
 				if (variableValue) {
-					if (!$.mapData[$gameMap.mapId()]) $.mapData[$gameMap.mapId()] = {}; 
+					if (!($.mapData[$gameMap.mapId()])) $.mapData[$gameMap.mapId()] = {};
 					$.mapData[$gameMap.mapId()][id] = variableValue;
 				}
 			}
@@ -72,7 +72,7 @@ $tvsData = {};
 	}
 
 	$.setVariable = function(mapId, variableId, variableValue) {
-		let mapData = $.mapData[mapId]
+		let mapData = $.mapData[mapId];
 		if (mapData) {
 			variableId = parseInt(variableId);
 			if (!isNaN(variableId) && mapData[variableId]) mapData[variableId] = variableValue;
