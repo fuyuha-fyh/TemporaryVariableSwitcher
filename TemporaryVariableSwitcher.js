@@ -52,14 +52,14 @@ $tvsData = {};
 	const _DataManager_makeSaveContents = DataManager.makeSaveContents;
 	DataManager.makeSaveContents = function() {
 		let contents = _DataManager_makeSaveContents.call(this);
-		contents.tvsData = $;
+		contents.tvsMapData = $.mapData || {};
 		return contents;
 	};
 
 	const _DataManager_extractSaveContents = DataManager.extractSaveContents;
 	DataManager.extractSaveContents = function(contents) {
 		_DataManager_extractSaveContents.call(this, contents);
-		$ = contents.tvsData;
+		$.mapData = contents.tvsMapData || {};
 	};
 
 	$.clearVariable = function(mapId) {
