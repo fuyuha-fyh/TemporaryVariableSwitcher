@@ -39,6 +39,11 @@ $tvsData = {};
 				let val = parseInt(newMapData[key]); key = parseInt(key);
 				if (!isNaN(key) && !isNaN(val)) $gameVariables.setValue(key, val); 
 			});
+		} else {
+			$.tempVariablesIds.forEach((num) => {
+				let id = parseInt(num);
+				if (!isNaN(id)) $gameVariables.setValue(id, 0);
+			});
 		}
 
 		_Game_Player_performTransfer.call(this);
